@@ -36,7 +36,7 @@ export default {
             requestAnimationFrame(animation)
         }
         //CALL FUNCTION
-        smoothScroll(`#infinity_content`, 1500)
+        smoothScroll(`#infinity_content`, 800)
     }
   },
 }
