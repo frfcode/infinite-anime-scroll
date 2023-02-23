@@ -1,20 +1,24 @@
 <template>
   <div>
       <b-container fluid>
-       <b-row id="infinity_content">
+       <b-row class="mb-4">
            <b-col cols="12" class="infinity-title">
-            <h1 class="text-center text-white">Infinity Anime Scroll</h1>
+           <img src="@/assets/logo.png" alt="infinity scroll" class="img-fluid w-50 d-block mx-auto">
            </b-col>
        </b-row>
-      <b-row id="infinity_content"></b-row>
+      <b-row id="infinity_content" class="infinity-margin-top"></b-row>
+      <ButtonUp emonji="➔" />
     </b-container>
   </div>
 </template>
 
 <script>
-
+import ButtonUp from '@/components/ButtonUp.vue'
 export default {
   name: 'App',
+  components:{
+    ButtonUp
+  },
   methods: {
       generateImage(){
         let automaticOption = generateRamdonNumber(2,0)
@@ -132,7 +136,7 @@ body::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb {
 }
 .infinity-loading{
   background: #000;
-  opacity: 0.7;
+  opacity: 0.8;
   position: fixed;
   top: 0;
   width: 100%;
@@ -141,14 +145,30 @@ body::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb {
 }
 .infinity-loading::after{
   content: '';
-  border-top: 25px solid #fff;
-  border-bottom: 25px solid #0083B0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
+  border-top: 15px solid #fff;
+  border-bottom: 15px solid #0083B0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 50%;
   animation: loading 4s ease-in-out infinite;
+}
+
+.infinity-loading::before{
+  content: '';
+  background-image: url('@/assets/loding-dance.gif');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 47%;
+  top: 37%;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}
+
+.infinity-margin-top{
+  margin-top: 8% !important;
 }
 
 @keyframes loading {
@@ -166,6 +186,23 @@ body::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media only screen and (max-width: 660px) and (min-width: 300px){
+  .infinity-loading::before{
+    left: 30%;
+  }
+  .infinity-loading::after{
+    left: 30%;
+  }
+}
+@media only screen and (max-width: 840px) and (min-width: 661px) {
+  .infinity-loading::before{
+    left: 40%;
+  }
+  .infinity-loading::after{
+    left: 40%;
   }
 }
 </style>
