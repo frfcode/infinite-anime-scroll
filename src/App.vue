@@ -45,7 +45,7 @@ export default {
           while(count < 16){
             let {uri, altNameAnime} = this.generateImage()
             this.getContainerInifinity().innerHTML += `
-             <div class="col-3 mb-2">
+             <div class="col-12 col-xs-12 col-md-4 col-lg-3 mb-2">
                <div class="infinity-card">
                  <img src="${uri}" alt="${altNameAnime}">
                </div>
@@ -88,28 +88,6 @@ export default {
           }, delay)
         }
       },
-      
-      
-      /*
-      
-        var button = document.getElementById("debounce");
-    const debounce = (func, delay) => {
-        let debounceTimer
-        return function() {
-            const context = this
-            const args = arguments
-                clearTimeout(debounceTimer)
-                    debounceTimer
-                = setTimeout(() => func.apply(context, args), delay)
-        }
-    }
-    button.addEventListener('click', debounce(function() {
-            alert("Hello\nNo matter how many times you" +
-                "click the debounce button, I get " +
-                "executed once every 3 seconds!!")
-                            }, 3000));
-      
-      */
   },
   data() {
     return {
