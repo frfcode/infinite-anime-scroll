@@ -41,6 +41,7 @@ export default {
         }
       },
       init(){
+          //ASSIGN FIRST CONTENT
           let count = 0
           while(count < 16){
             let {uri, altNameAnime} = this.generateImage()
@@ -69,7 +70,7 @@ export default {
         }
         
         function debounce (func, delay) {
-          //tmp div
+          //CREATE TMP DIV
           let tmpDiv = document.createElement('div')
           tmpDiv.classList.add('infinity-loading')
           tmpDiv.setAttribute("id", "infinity_loading")
@@ -78,8 +79,8 @@ export default {
           let debounceTimer = 0
           setInterval(()=>{
             if(debounceTimer == 1){
+              //CLOSE TIME AND DELETE TMP DIV
               clearInterval(debounceTimer);
-              console.log('new content')
               let getTmpDiv = document.querySelector('#infinity_loading')
               getTmpDiv.remove()
               func.apply()
